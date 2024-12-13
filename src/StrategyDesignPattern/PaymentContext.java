@@ -7,7 +7,7 @@ public class PaymentContext {
         this.paymentStrategy = paymentStrategy;
     }
 
-    void excutePaymentProcess(double amount){
+    void executePaymentProcess(double amount){
         if (paymentStrategy == null){
             throw new RuntimeException("payment Strategy is null");
         }
