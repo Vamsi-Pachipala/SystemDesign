@@ -26,6 +26,7 @@ public class TicTacToeGame implements Game {
     @Override
     public void start() {
         while (true){
+            gameManager.displayCurrentState(board);
             Piece winner = gameManager.findWinner(board);
             if(winner!=null){
                 if(winner.findPieceType().equals(PieceType.T)){
@@ -37,7 +38,6 @@ public class TicTacToeGame implements Game {
                 return;
             }
             Player curTurnPlayer = players.pollFirst();
-            gameManager.displayCurrentState(board);
             if(curTurnPlayer!=null) System.out.println("please enter your turn "+curTurnPlayer.getName());
             else {
                 System.out.println("something went wrong to our System");
