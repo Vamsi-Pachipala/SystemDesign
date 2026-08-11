@@ -2,7 +2,7 @@ package DesignProblems.ProducerConsumer;
 
 import java.util.LinkedList;
 
-public class Main {
+public class NaiveThreads {
 
     private static final int CAPACITY = 10;
 
@@ -10,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Main main = new Main();
+        NaiveThreads main = new NaiveThreads();
 
         Thread producerThread = new Thread(() -> {
             try {

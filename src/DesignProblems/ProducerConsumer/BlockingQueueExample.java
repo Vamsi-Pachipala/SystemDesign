@@ -3,7 +3,7 @@ package DesignProblems.ProducerConsumer;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
-public class Example2 {
+public class BlockingQueueExample {
 
     private static final int CAPACITY = 10;
     private static final BlockingQueue<Integer> queue =
