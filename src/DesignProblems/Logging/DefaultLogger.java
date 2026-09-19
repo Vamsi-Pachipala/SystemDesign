@@ -21,26 +21,32 @@ public class DefaultLogger implements Logger {
         }
     }
 
+    @Override
     public void trace(String message) {
         log(message, LogLevel.TRACE);
     }
 
+    @Override
     public void debug(String message) {
         log(message, LogLevel.DEBUG);
     }
 
+    @Override
     public void info(String message) {
         log(message, LogLevel.INFO);
     }
 
+    @Override
     public void warn(String message) {
         log(message, LogLevel.WARN);
     }
 
+    @Override
     public void error(String message) {
         log(message, LogLevel.ERROR);
     }
 
+    @Override
     public void fatal(String message) {
         log(message, LogLevel.FATAL);
     }

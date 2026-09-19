@@ -12,7 +12,7 @@ public class Main {
         // we can do like logs.file = false , logs.console = true
         // DefaultLogger can be singleton for whole application or if you need different for different package
         // still can achieve
-        DefaultLogger defalutLogger = new DefaultLogger(
+        Logger defalutLogger = new DefaultLogger(
                 LogLevel.DEBUG,
                 List.of(new ConsoleAppender())
         );
