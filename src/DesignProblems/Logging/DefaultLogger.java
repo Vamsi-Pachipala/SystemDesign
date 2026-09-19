@@ -4,7 +4,7 @@ import java.util.List;
 
 public class DefaultLogger implements Logger {
 
-    private LogLevel minimumLogLevel; // can be configured to log from application.properties file in future
+    private final LogLevel minimumLogLevel; // can be configured to log from application.properties file in future
     private final List<Appender> appender;
 
     public DefaultLogger(LogLevel logLevel, List<Appender> appender) {

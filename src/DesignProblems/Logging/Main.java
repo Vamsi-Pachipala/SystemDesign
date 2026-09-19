@@ -17,6 +17,7 @@ public class Main {
                 List.of(new ConsoleAppender())
         );
 
+        // currently it is processed by main thread , later we can create threads and executor service have jobs to process logs
         defalutLogger.debug("user created");
     }
 }
