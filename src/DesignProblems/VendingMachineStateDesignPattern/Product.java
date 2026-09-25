@@ -1,4 +1,4 @@
-package DesignPatterns.VendingMachineStateDesignPattern;
+package DesignProblems.VendingMachineStateDesignPattern;
 
 public class Product {
     int id;

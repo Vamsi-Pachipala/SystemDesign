@@ -1,7 +1,7 @@
-package DesignPatterns.VendingMachineStateDesignPattern.Interface;
+package DesignProblems.VendingMachineStateDesignPattern.Interface;
 
-import DesignPatterns.VendingMachineStateDesignPattern.Product;
-import DesignPatterns.VendingMachineStateDesignPattern.VendingMachine;
+import DesignProblems.VendingMachineStateDesignPattern.Product;
+import DesignProblems.VendingMachineStateDesignPattern.VendingMachine;
 
 public interface VendingMachineState {
     void insertMoney(VendingMachine vendingMachine , double money);

@@ -1,8 +1,8 @@
-package DesignPatterns.VendingMachineStateDesignPattern.States;
+package DesignProblems.VendingMachineStateDesignPattern.States;
 
-import DesignPatterns.VendingMachineStateDesignPattern.Interface.VendingMachineState;
-import DesignPatterns.VendingMachineStateDesignPattern.Product;
-import DesignPatterns.VendingMachineStateDesignPattern.VendingMachine;
+import DesignProblems.VendingMachineStateDesignPattern.Interface.VendingMachineState;
+import DesignProblems.VendingMachineStateDesignPattern.Product;
+import DesignProblems.VendingMachineStateDesignPattern.VendingMachine;
 
 public class HasMoney implements VendingMachineState {
     @Override

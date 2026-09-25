@@ -1,6 +1,6 @@
-package DesignPatterns.VendingMachineStateDesignPattern;
+package DesignProblems.VendingMachineStateDesignPattern;
 
-import DesignPatterns.VendingMachineStateDesignPattern.States.Idle;
+import DesignProblems.VendingMachineStateDesignPattern.States.Idle;
 
 public class Client {
     public static void main(String[] args) {

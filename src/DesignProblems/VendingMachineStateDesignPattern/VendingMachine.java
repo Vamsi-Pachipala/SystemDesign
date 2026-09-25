@@ -1,6 +1,6 @@
-package DesignPatterns.VendingMachineStateDesignPattern;
+package DesignProblems.VendingMachineStateDesignPattern;
 
-import DesignPatterns.VendingMachineStateDesignPattern.Interface.VendingMachineState;
+import DesignProblems.VendingMachineStateDesignPattern.Interface.VendingMachineState;
 
 import java.util.HashMap;
 import java.util.Map;
