@@ -29,11 +29,11 @@ public class Show {
         }
     }
 
-    Booking book(int userId , List<Integer> seats){
+    public synchronized Booking  book(int userId , List<Integer> seats){
         // check if seats are available
         for(int seatId : seats) {
             if(!this.seats.containsKey(seatId) || this.seats.get(seatId).seatStatus == SeatStatus.BOOKED) {
-                System.out.println("Seat " + seatId + " is not available");
+                System.out.println("Seat " + seatId + " is not available" + " for user "+userId);
                 return null;
             }
         }

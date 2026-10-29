@@ -39,12 +39,25 @@ public class Main {
             System.out.println("Show ID: " + show.showId + ", Movie Name: " + show.movie.movieName);
         }
         Show show = shows.get(0);
-        Booking booking = bookingManager.bookTicket(show , user.Id , List.of(1, 2, 3));
+        Thread t1 = new Thread(() -> {
+            Booking booking = bookingManager.bookTicket(show , 2 , List.of(1, 2, 3));
+            if(booking != null){
+                System.out.println("successfully booked ticket for user " + booking.userId + " for movie " + booking.show.movie.movieName + " show" +
+                        "startTime is " + booking.show.startTime + " endTime is " + booking.show.endTime);
+            }
+        });
 
-        if(booking != null){
-            System.out.println("successfully booked ticket for user " + booking.userId + " for movie " + booking.show.movie.movieName + " show" +
-                    "startTime is " + booking.show.startTime + "endTime is " + booking.show.endTime);
-        }
+        Thread t2 = new Thread(() -> {
+            Booking booking = bookingManager.bookTicket(show , user.Id , List.of(1, 2, 3));
+            if(booking != null){
+                System.out.println("successfully booked ticket for user " + booking.userId + " for movie " + booking.show.movie.movieName + " show" +
+                        "startTime is " + booking.show.startTime + " endTime is " + booking.show.endTime);
+            }
+        });
+
+        t1.start();
+        t2.start();
+
 
     }
 }
