@@ -1,32 +1,49 @@
 package DesignProblems.BookingMyShow;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Show {
 
     int showId;
 
     Movie movie;
-    boolean[] seats;
 
-    String showTime;
+    Map<Integer , Seat> seats; // seatId to Seat mapping
 
-    public Show(int showId, Movie movie, int totalSeats , String showTime) {
+    int startTime ;
+    int endTime; // for now using integers like 9 to 12 for 9AM to 12PM
+
+    public Show(int showId, Movie movie, int startTime, int endTime) {
         this.showId = showId;
         this.movie = movie;
-        this.seats = new boolean[totalSeats + 1]; // 1-based indexing for seats
-        this.showTime = showTime;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        seats = new HashMap<>();
+        fillSeats();
+    }
+    private void fillSeats() {
+        for(int i = 1 ; i <= 100 ; i++) {
+            seats.put(i , new Seat(i , "S" + i));
+        }
     }
 
-    boolean bookSeat(int seatNumber) {
-        if (seatNumber < 1 || seatNumber >= seats.length) {
-            System.out.println("Invalid seat number.");
-            return false;
+    Booking book(int userId , List<Integer> seats){
+        // check if seats are available
+        for(int seatId : seats) {
+            if(!this.seats.containsKey(seatId) || this.seats.get(seatId).seatStatus == SeatStatus.BOOKED) {
+                System.out.println("Seat " + seatId + " is not available");
+                return null;
+            }
         }
-        if (seats[seatNumber]) {
-            System.out.println("Seat already booked.");
-            return false;
+
+        // mark seats as booked
+        for(int seatId : seats) {
+            this.seats.get(seatId).seatStatus = SeatStatus.BOOKED;
         }
-        seats[seatNumber] = true;
-        System.out.println("Seat " + seatNumber + " booked successfully.");
-        return true;
+
+        // create booking
+        return new Booking("B" + System.currentTimeMillis(), userId, this, seats.stream().map(seatId -> this.seats.get(seatId)).toList());
     }
 }

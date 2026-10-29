@@ -2,20 +2,11 @@ package DesignProblems.BookingMyShow;
 
 public class Ticket {
 
-    String userId;
-    String ticketId;
+    Booking booking;
+    int ticketId;
 
-    String movieId;
-
-    Screen screen;
-
-    Theatre theatre;
-
-    public Ticket(String userId, String ticketId, String movieId, Screen screen, Theatre theatre) {
-        this.userId = userId;
+    public Ticket(Booking booking, int ticketId) {
+        this.booking = booking;
         this.ticketId = ticketId;
-        this.movieId = movieId;
-        this.screen = screen;
-        this.theatre = theatre;
     }
 }

@@ -1,47 +1,49 @@
 package DesignProblems.BookingMyShow;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        User user = new User("U1", "1234567890");
+        User user = new User(1, "1234567890");
 
-        Movie movie = new Movie("M1", "120", "Inception");
+        Movie movie1 = new Movie("1" , "180min" , "Avengers");
 
-        Show show1 = new Show(1, movie, 100, "2024-06-01 18:00");
+        Show show1 = new Show(1,  movie1, 9, 10);
 
-        Show show2 = new Show(2, movie, 100, "2024-06-01 21:00");
+        Screen screen1 = new Screen(1, List.of(show1));
 
-        List<Show> shows = new ArrayList<>();
+        Theatre theatre1 = new Theatre("1", "PVR", List.of(screen1));
 
-        Screen screen = new Screen(1, shows);
-
-        Theatre theatre = new Theatre("T1", "PVR Cinemas", List.of(screen));
-
-        // Display Movies
         BookingManager bookingManager = new BookingManager();
 
-        Ticket ticket = bookingManager.book(user, movie, theatre, screen, show1,1);
+        //fill cityMap
+        bookingManager.cityTheatreMap.put("Bengaluru", List.of(theatre1));
 
-        if(ticket != null){
-            System.out.println("Booking successful! Ticket ID: " + ticket.ticketId);
-        } else {
-            System.out.println("Booking failed. Seat not available.");
+        List<Movie> movies = bookingManager.getAllMovies("Bengaluru");
+
+        for(Movie movie : movies) {
+            System.out.println("Movie ID: " + movie.movieId + ", Movie Name: " + movie.movieName);
         }
 
+        List<Theatre> theatres = bookingManager.getAllTheatres("Bengaluru", "1");
 
-        // Display Movies
+        for(Theatre theatre : theatres) {
+            System.out.println("Theatre ID: " + theatre.theatreId + ", Theatre Name: " + theatre.theatreName);
+        }
 
+        List<Show> shows = bookingManager.getAllShows("Bengaluru", "1", "1");
 
-        Ticket ticket2 = bookingManager.book(user, movie, theatre, screen, show1,1);
+        for(Show show : shows) {
+            System.out.println("Show ID: " + show.showId + ", Movie Name: " + show.movie.movieName);
+        }
+        Show show = shows.get(0);
+        Booking booking = bookingManager.bookTicket(show , user.Id , List.of(1, 2, 3));
 
-        if(ticket2 != null){
-            System.out.println("Booking successful! Ticket ID: " + ticket2.ticketId);
-        } else {
-            System.out.println("Booking failed. Seat not available.");
+        if(booking != null){
+            System.out.println("successfully booked ticket for user " + booking.userId + " for movie " + booking.show.movie.movieName + " show" +
+                    "startTime is " + booking.show.startTime + "endTime is " + booking.show.endTime);
         }
 
     }

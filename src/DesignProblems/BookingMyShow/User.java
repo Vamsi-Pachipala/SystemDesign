@@ -1,12 +1,10 @@
 package DesignProblems.BookingMyShow;
 
 public class User {
-    String Id;
-
+    int Id;
     String mobileNumber;
-
-    public User(String id, String mobileNumber) {
-        Id = id;
+    public User(int id, String mobileNumber) {
+        this.Id = id;
         this.mobileNumber = mobileNumber;
     }
 }
